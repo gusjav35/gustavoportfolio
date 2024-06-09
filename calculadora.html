@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Calculadora</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styleCalc.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="appBg">
+        <form name="calculator">
+            <input type="text" name="ans" id="ans" value="" autocomplete="off" readonly>
+            <br />
+            <div class="button-row">
+                <input type="button" value="7" onclick="appendValue('7')" class="grey">
+                <input type="button" value="8" onclick="appendValue('8')" class="grey">
+                <input type="button" value="9" onclick="appendValue('9')" class="grey">
+                <input type="button" value="+" onclick="appendValue('+')" class="orange">
+            </div>
+            <div class="button-row">
+                <input type="button" value="4" onclick="appendValue('4')" class="grey">
+                <input type="button" value="5" onclick="appendValue('5')" class="grey">
+                <input type="button" value="6" onclick="appendValue('6')" class="grey">
+                <input type="button" value="-" onclick="appendValue('-')" class="orange">
+            </div>
+            <div class="button-row">
+                <input type="button" value="1" onclick="appendValue('1')" class="grey">
+                <input type="button" value="2" onclick="appendValue('2')" class="grey">
+                <input type="button" value="3" onclick="appendValue('3')" class="grey">
+                <input type="button" value="*" onclick="appendValue('*')" class="orange">
+            </div>
+            <div class="button-row">
+                <input type="button" value="0" onclick="appendValue('0')" class="grey">
+                <input type="reset" value="C" onclick="clearValue()" class="grey">
+                <input type="button" value="=" onclick="calculateResult()" class="grey">
+                <input type="button" value="/" onclick="appendValue('/')" class="orange">
+            </div>
+        </form>
+        <button onclick="goBack()" class="back-button">VOLVER</button>
+    </div>
+
+    <script>
+        document.addEventListener('keydown', function(event) {
+            const key = event.key;
+            if (key >= '0' && key <= '9') {
+                appendValue(key);
+            } else if (key === '+' || key === '-' || key === '*' || key === '/') {
+                appendValue(key);
+            } else if (key === 'Enter') {
+                calculateResult();
+            } else if (key === 'Backspace') {
+                deleteLastChar();
+            }
+        });
+
+        function appendValue(value) {
+            document.calculator.ans.value += value;
+        }
+
+        function clearValue() {
+            document.calculator.ans.value = '';
+        }
+
+        function calculateResult() {
+            try {
+                document.calculator.ans.value = eval(document.calculator.ans.value);
+            } catch {
+                document.calculator.ans.value = 'Error';
+            }
+        }
+
+        function deleteLastChar() {
+            const currentValue = document.calculator.ans.value;
+            document.calculator.ans.value = currentValue.substring(0, currentValue.length - 1);
+        }
+
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+
+</html>
+
