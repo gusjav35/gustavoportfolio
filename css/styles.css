@@ -159,7 +159,7 @@ html {
 .avatar-img {
    position: absolute;
    top: calc(50% - 50px + 35px); 
-   left: calc(50% - 50px);
+   left: calc(50% - 50px + 10px);
    border-radius: 50%;
    width: 90px; 
    height: 90px;
