@@ -143,20 +143,36 @@ html {
    background-size: cover;
 }
 
-.contenido-titulo{
-   position: absolute;
+.avatar-contenedor {
+   position: relative;
+   background-repeat: no-repeat;
+   background-size: cover;   
+   width: 85%;
    margin: 0 auto;
-   padding: 5rem;
+   padding: 20px;
    color: var(--blanco);
-   bottom: 0;
-   left: 0;
-   top: 0;
-   right: 0;
-   background-color: rgba( 0,0,0, .5);
+   text-align: center;
+   border-radius: 2%;
+   margin-bottom: 5rem;
+}
+
+.avatar-img {
+   position: absolute;
+   top: calc(50% - 50px + 35px); 
+   left: calc(50% - 50px);
+   border-radius: 50%;
+   width: 90px; 
+   height: 90px;
 }
 
 
- /* Hero */
+.contenido-titulo {
+   position: relative; 
+   margin-top: 20px; 
+   color: var(--blanco);
+}
+
+/* Hero */
  .hero {
    background-image: url(../img/hero.jpg);
    background-repeat: no-repeat;
