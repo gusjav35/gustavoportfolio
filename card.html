@@ -95,7 +95,39 @@
                     </div>
                 </div>
             </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img class="card-img-top" src="img/imagen-js.png" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Ejercicio Leer y Mostrar</h5>
+                        <p class="card-text">Práctica de JavaScript - Trabajo Integrador Programación III</p>
+                   
+                        <!-- EJERCICIO JAVASCRIPT -->
+                    <div>
+                        <label for="mensaje">Escriba su Mensaje:</label>
+                        <input type="text" id="mensaje" class="form-control mb-2">
+                        <button id="mostrarBtn" class="btn btn-primary">MOSTRAR</button>
+                    </div>
+
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function () {
+                            var mostrarBtn = document.getElementById('mostrarBtn');
+                            mostrarBtn.addEventListener('click', function () {
+                                var mensaje = document.getElementById('mensaje').value;
+                                mostrarAlerta(mensaje);
+                            });
+
+                            function mostrarAlerta(mensaje) {
+                                alert('Esta página dice: ' + mensaje);
+                            }
+                        });
+                    </script>
+                    </div>
+                </div>
+            </div>
         </div>
+        </div>
+        
         <div class="row mt-4">
             <div class="col-12 text-center">
                 <a href="index.html"
